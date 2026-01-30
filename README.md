@@ -1,8 +1,8 @@
 # springboot4-java25-k8s-playground
-Spring Boot 4 and Java 25 playground for Kubernetes testing and experimentation
+Spring Boot and Java playground for Kubernetes testing and experimentation
 
 ## Overview
-This is a playground project for experimenting with Spring Boot 4 and Java 25, designed to run in Kubernetes environments.
+This is a playground project for experimenting with Spring Boot (currently 3.4.1, ready to upgrade to Spring Boot 4) and modern Java (currently Java 17), designed to run in Kubernetes environments.
 
 ## Prerequisites
 - Java 17+ (JDK)
@@ -127,8 +127,8 @@ kubectl delete -f k8s/deployment.yaml
 | `/actuator/metrics` | GET | Application metrics |
 
 ## Features
-- ✅ Spring Boot 3.4.1 (ready for Spring Boot 4)
-- ✅ Java 17 (ready for Java 25)
+- ✅ Spring Boot 3.4.1 (upgradeable to Spring Boot 4)
+- ✅ Java 17 (upgradeable to newer Java versions)
 - ✅ RESTful API endpoints
 - ✅ Spring Boot Actuator for monitoring
 - ✅ Docker support

@@ -14,7 +14,7 @@ public class PlaygroundController {
     @GetMapping("/hello")
     public Map<String, String> hello() {
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Hello from Spring Boot 4 & Java 25 Playground!");
+        response.put("message", "Hello from Spring Boot Playground!");
         response.put("status", "running");
         return response;
     }
@@ -23,7 +23,7 @@ public class PlaygroundController {
     public Map<String, String> health() {
         Map<String, String> response = new HashMap<>();
         response.put("status", "UP");
-        response.put("application", "Spring Boot 4 Java 25 K8s Playground");
+        response.put("application", "Spring Boot K8s Playground");
         return response;
     }
 
