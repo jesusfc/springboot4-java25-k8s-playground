@@ -54,8 +54,24 @@ mvn test
 # Test the endpoints
 curl http://localhost:8080/api/hello
 curl http://localhost:8080/api/health
+
+# Test actuator health endpoint (public)
 curl http://localhost:8080/actuator/health
+
+# Test secured actuator endpoints (requires authentication)
+curl -u admin:admin http://localhost:8080/actuator/info
+curl -u admin:admin http://localhost:8080/actuator/metrics
 ```
+
+## Security
+
+The application includes Spring Security to protect sensitive actuator endpoints. 
+
+- **Public endpoints**: `/api/**` and `/actuator/health` are publicly accessible
+- **Protected endpoints**: Other actuator endpoints require authentication
+- **Default credentials**: username=`admin`, password=`admin` (configured in application.properties)
+
+⚠️ **Important**: Change the default credentials before deploying to production!
 
 ## Docker
 
@@ -131,6 +147,7 @@ kubectl delete -f k8s/deployment.yaml
 - ✅ Java 17 (upgradeable to newer Java versions)
 - ✅ RESTful API endpoints
 - ✅ Spring Boot Actuator for monitoring
+- ✅ Spring Security for endpoint protection
 - ✅ Docker support
 - ✅ Docker Compose configuration
 - ✅ Kubernetes deployment manifests
