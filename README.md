@@ -4,12 +4,12 @@ Spring Boot 4 and Java 25 playground for Kubernetes testing and experimentation.
 
 ## Project Overview
 
-This project demonstrates a Spring Boot 4 application configured for Java 25, designed for Kubernetes deployment and testing. It includes REST endpoints, health checks, and complete K8s manifests.
+This project demonstrates a Spring Boot 4 application designed for Kubernetes deployment and testing. It includes REST endpoints, health checks, and complete K8s manifests. The project is configured to use Java 17 (the minimum version required by Spring Boot 4) but can be easily upgraded to Java 25 when needed.
 
 ## Technologies
 
 - **Spring Boot**: 4.0.2
-- **Java**: 17+ (configured for Java 25)
+- **Java**: 17 (configurable for Java 25)
 - **Build Tool**: Maven with wrapper
 - **Container**: Docker
 - **Orchestration**: Kubernetes
@@ -138,9 +138,8 @@ kubectl scale deployment k8s-playground --replicas=3
 
 ## API Endpoints
 
-- `GET /api/hello` - Returns information about the application
-- `GET /api/health` - Simple health check endpoint
-- `GET /actuator/health` - Detailed health information
+- `GET /api/hello` - Returns information about the application including Java version, Spring Boot version, and timestamp
+- `GET /actuator/health` - Detailed health information with liveness and readiness states
 - `GET /actuator/info` - Application info
 - `GET /actuator/metrics` - Application metrics
 
@@ -208,6 +207,28 @@ Application configuration is in `src/main/resources/application.properties`:
 ```bash
 ./mvnw package -DskipTests
 ```
+
+### Upgrading to Java 25
+
+When Java 25 becomes available, you can upgrade the project by:
+
+1. Update `pom.xml`:
+```xml
+<properties>
+    <java.version>25</java.version>
+    <maven.compiler.source>25</maven.compiler.source>
+    <maven.compiler.target>25</maven.compiler.target>
+</properties>
+```
+
+2. Update `Dockerfile` base images:
+```dockerfile
+FROM eclipse-temurin:25-jdk-alpine AS build
+...
+FROM eclipse-temurin:25-jre-alpine
+```
+
+3. Ensure your local environment has Java 25 installed
 
 ## Contributing
 
