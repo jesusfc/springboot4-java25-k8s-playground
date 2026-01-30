@@ -1,4 +1,4 @@
-package com.example.k8splayground;
+package com.jesusfc.k8splayground;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

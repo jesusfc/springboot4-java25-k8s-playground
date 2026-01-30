@@ -1,4 +1,4 @@
-package com.example.k8splayground.controller;
+package com.jesusfc.k8splayground.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
