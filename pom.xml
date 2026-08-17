@@ -4,7 +4,7 @@
 
     <groupId>com.jesusfc</groupId>
     <artifactId>k8s-playground</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>k8s-playground-parent</name>
@@ -23,7 +23,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <!-- Spring Boot version exposed para que los módulos hereden -->
-        <spring-boot.version>4.0.2</spring-boot.version>
+        <spring-boot.version>4.0.3</spring-boot.version>
     </properties>
 
     <!-- Importar el BOM de Spring Boot para gestión centralizada de dependencias -->

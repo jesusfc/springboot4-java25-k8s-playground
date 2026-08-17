@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: k8s-playground
+
+application:
+  title: k8s-playground
+  description: A simple Spring Boot application for Kubernetes playground
+  version: 1.0.0
+
+
+swagger:
+  yaml:
+    path: ./swagger.yaml
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+
