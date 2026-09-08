@@ -15,6 +15,9 @@ FROM eclipse-temurin:25-jre
 
 WORKDIR /app
 
+LABEL org.opencontainers.image.title="k8s-playground" \
+      org.opencontainers.image.version="latest"
+
 RUN useradd --system --create-home --home-dir /home/spring spring
 
 COPY --from=build /workspace/java-app/target/*.jar app.jar
