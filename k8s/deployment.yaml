@@ -5,7 +5,7 @@ metadata:
   labels:
     app: k8s-playground
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: k8s-playground
@@ -24,6 +24,10 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "development"
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         livenessProbe:
           httpGet:
             path: /actuator/health/liveness

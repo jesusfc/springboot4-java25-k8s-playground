@@ -19,6 +19,7 @@ public class HelloController {
         response.put("timestamp", LocalDateTime.now());
         response.put("javaVersion", System.getProperty("java.version"));
         response.put("springBootVersion", org.springframework.boot.SpringBootVersion.getVersion());
+        response.put("podName", System.getenv().getOrDefault("HOSTNAME", "local"));
         System.out.println("Hello endpoint was called at " + LocalDateTime.now());
         return response;
     }
