@@ -73,6 +73,10 @@ curl http://localhost:8080/api/health
 
 ### Build Docker Image
 
+La construcción de la imagen no crea ningún contenedor permanente. Ejecuta la
+acción **Build** de Docker, no **Run**, y asigna explícitamente el nombre de la
+imagen:
+
 ```bash
 docker build -t k8s-playground:latest .
 ```
@@ -88,6 +92,9 @@ docker run -p 8080:8080 k8s-playground:latest
 ### Deploy to Kubernetes
 
 ```bash
+# Si usas Minikube, carga la imagen local en el runtime del clúster
+minikube image load k8s-playground:latest
+
 # Apply deployment
 kubectl apply -f k8s/deployment.yaml
 
@@ -237,4 +244,3 @@ This is a playground project for testing and experimentation. Feel free to fork 
 ## License
 
 This project is for educational and testing purposes.
-
