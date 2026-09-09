@@ -10,6 +10,10 @@
     <name>k8s-playground-parent</name>
     <description>Microservice for Kubernetes testing</description>
 
+    <modules>
+        <module>java-app</module>
+    </modules>
+
     <properties>
         <!-- Alineado con el módulo java-app (Java 25) -->
         <java.version>25</java.version>
