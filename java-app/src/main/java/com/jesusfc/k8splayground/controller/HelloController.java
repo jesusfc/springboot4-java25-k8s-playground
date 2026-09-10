@@ -14,9 +14,26 @@ public class HelloController {
 
     @GetMapping("/hello")
     public Map<String, Object> hello() {
+
+
+        LocalDateTime entryTime = LocalDateTime.now();
+
+        // create wait time to simulate a long-running process
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        LocalDateTime responseTime = LocalDateTime.now();
+        // Difference in milliseconds
+        long duration = java.time.Duration.between(entryTime, responseTime).toMillis();
+
         Map<String, Object> response = new HashMap<>();
         response.put("message", "Hello from Spring Boot 4!");
-        response.put("timestamp", LocalDateTime.now());
+        response.put("entryTime: ", entryTime.toString());
+        response.put("responseTime: ", responseTime.toString());
+        response.put("duration: ", duration + " ms");
         response.put("javaVersion", System.getProperty("java.version"));
         response.put("springBootVersion", org.springframework.boot.SpringBootVersion.getVersion());
         response.put("podName", System.getenv().getOrDefault("HOSTNAME", "local"));
